@@ -2,7 +2,7 @@ const { MongoClient } = require("mongodb");
 
 module.exports = async function (req, res) {
   if (req.method !== "POST") {
-    return res.status(405).json({ message: "Method not allowed" });
+    return res.status(405).send("Method Not Allowed");
   }
 
   const client = new MongoClient(process.env.MONGODB_URI);
@@ -21,9 +21,9 @@ module.exports = async function (req, res) {
       createdAt: new Date(),
     });
 
-    res.status(200).json({ message: "Saved" });
+    res.status(200).json({ success: true });
   } catch (error) {
-    res.status(500).json({ message: "Database error" });
+    res.status(500).json({ error: "Database error" });
   } finally {
     await client.close();
   }
