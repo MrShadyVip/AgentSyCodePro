@@ -1,0 +1,11 @@
+{
+  "name": "agentsycode",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "mongodb": "^5.0.0"
+  },
+  "scripts": {
+    "build": "echo build"
+  }
+}
